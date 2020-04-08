@@ -1,0 +1,68 @@
+{
+  "dependencies": {
+    "contentful": "^7.14.2",
+    "focus-visible": "^5.1.0",
+    "lodash-es": "^4.17.15",
+    "siema": "^1.5.1",
+    "svelte": "^3.20.1",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "concurrently": "^5.1.0",
+    "cpx": "^1.5.0",
+    "css-loader": "^3.5.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-svelte3": "^2.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "now": "^18.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "per-env": "^1.0.2",
+    "postcss-loader": "^3.0.0",
+    "stylelint": "^13.3.2",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.14.2",
+    "svelte-loader": "^2.13.6",
+    "svelte-preprocess-sass": "^0.2.0",
+    "terser-webpack-plugin": "^2.3.5",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "engines": {
+    "node": "^12"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "private": true,
+  "scripts": {
+    "start": "per-env",
+    "start:development": "npm run clean && concurrently npm:build:client npm:build:server npm:copy npm:serve --kill-others",
+    "start:production": "npm run build:client && npm run build:server && npm run copy",
+    "clean": "rm -rf public",
+    "build:client": "webpack --config webpack.client.js",
+    "build:server": "webpack --config webpack.server.js",
+    "copy": "per-env",
+    "copy:development": "npm run copy:production -- --watch",
+    "copy:production": "cpx 'source/assets/**' public --verbose",
+    "serve": "now dev --listen 6969",
+    "lint": "npm run lint:markup && npm run lint:styles && npm run lint:scripts",
+    "lint:markup": "eslint source/**/*.svelte",
+    "lint:styles": "stylelint source/**/*.{svelte,scss}",
+    "lint:scripts": "eslint .",
+    "now-build": "npx per-env",
+    "now-build:development": ":",
+    "now-build:production": "npm start"
+  }
+}

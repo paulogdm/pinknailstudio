@@ -1,0 +1,33 @@
+{
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@now/static"
+    },
+    {
+      "src": "api/**",
+      "use": "@now/node"
+    }
+  ],
+  "env": {
+    "CONTENTFUL_SPACE": "dwnkzpruazj7",
+    "CONTENTFUL_TOKEN": "@contentful_token"
+  },
+  "routes": [
+    {
+      "dest": "/public/$1",
+      "src": "/(.+)"
+    },
+    {
+      "dest": "api/get.js",
+      "methods": ["GET"],
+      "src": "/"
+    }
+  ],
+  "version": 2
+}
