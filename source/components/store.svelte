@@ -85,11 +85,11 @@
 
   .column {
     display: grid;
-    grid-gap: 2.4rem;
+    grid-gap: 24px;
     text-align: center;
 
     @include breakpoint(m) {
-      grid-gap: 1.2rem;
+      grid-gap: 12px;
     }
   }
 

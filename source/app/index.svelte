@@ -16,7 +16,7 @@
     background-color: var(--colors-white);
     border: 1px solid var(--colors-light-grey);
     border-radius: 4px;
-    margin: 32px auto;
+    margin: 22px auto;
     max-width: 1065px;
 
     @include breakpoint(m) {

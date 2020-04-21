@@ -113,7 +113,7 @@
   .items {
     --margin-top: 65px;
 
-    column-gap: 6px;
+    column-gap: 60px;
     columns: auto 2;
     margin-top: var(--margin-top);
     text-align: left;
@@ -322,7 +322,7 @@
   }
 
   .dialog-description {
-    color: #666666;
+    color: #666666; // 🤘
     font-size: 1.2rem;
   }
 </style>
