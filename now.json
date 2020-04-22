@@ -5,7 +5,7 @@
     }
   },
   "env": {
-    "CONTENTFUL_SPACE": "test",
+    "CONTENTFUL_SPACE": "replacethis",
     "CONTENTFUL_TOKEN": "test"
   },
   "rewrites": [
