@@ -61,6 +61,6 @@
     "lint:markup": "eslint source/**/*.svelte",
     "lint:styles": "stylelint source/**/*.{svelte,scss}",
     "lint:scripts": "eslint .",
-    "now-build": "per-env"
+    "vercel-build": "per-env"
   }
 }
